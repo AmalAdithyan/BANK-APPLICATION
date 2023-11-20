@@ -1,0 +1,55 @@
+<div class="text-black mt-3 text-center">
+    <h5>{{datedetails|date:'short'}}</h5>
+</div>
+
+<div class="text-end pt-2 pe-4">
+    <button class="btn btn-warning me-1" (click)="deleteParent()">Delete Account</button> 
+
+    <button (click)="logout()" class="btn btn-danger me-0">LogOut</button>
+</div>
+<h1>WELCOME {{ user }}</h1>
+<app-delete-form (onDelete)="Delete($event)" (oncancel)="cancel()" [item]="acno"></app-delete-form>
+<div  [ngClass]="acno?'style':''" class="mt-3 p-2 w-25 container rounded-pill text-center border border-dark" style="background: rgba(0, 0, 0, 0.397);">
+<a style="text-decoration: none;color: rgb(242,242,242);" routerLink="/transaction">View Transaction History</a></div>
+
+<div  [ngClass]="acno?'style':''" class="cintainer row mb-5 p-5">
+    <div class="text-center container col-lg-6 col-md-12 col-sm-6">
+        <div class="container w-75 rounded text-center p-5 mt-2" style="background: rgba(0, 0, 0, 0.596);">
+
+            <h1 class="text-white">Deposit</h1>
+            <form  [formGroup]="depositForm" action="">
+                <div class="p-3 mt-2">
+                    <input formControlName="acno" id="acid" name="acnum1" class="form-control" type="text" placeholder="Enter acnum">
+                </div>
+                <div class="p-3 mt-2">
+                    <input formControlName="psw" id="psw1" name="paswrd1" class="form-control" type="password" placeholder="Enter Password">
+                </div>
+                <div class="p-3 mt-2">
+                    <input formControlName="amnt" id="amouid" name="amnt1" class="form-control" type="text" placeholder="Amount">
+                </div>
+                <div class="p-3 mt-2">
+                    <button (click)="deposit()" type="button" class="btn btn-outline-warning">Deposit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        <div class="text-center container col-lg-6 col-md-12 col-sm-6">
+        <div class="container w-75 rounded text-center p-5 mt-2" style="background: rgba(0, 0, 0, 0.596);">
+            <h1 class="text-white">Withdraw</h1>
+            <form (ngSubmit)="withdraw()" [formGroup]="withdrawForm" action="">
+                <div class="p-3 mt-2">
+                    <input formControlName="acno1" id="acid2" name="acnum2" class="form-control" type="text" placeholder="Enter acnum">
+                </div>
+                <div class="p-3 mt-2">
+                    <input formControlName="psw1" id="psw2" name="paswrd2" class="form-control" type="password" placeholder="Enter Password">
+                </div>
+                <div class="p-3 mt-2">
+                    <input formControlName="amnt1" id="amouid1" name="amnt2" class="form-control" type="text" placeholder="Amount">
+                </div>
+                <div class="p-3 mt-2">
+                    <button (click)="withdraw()"  type="button" class="btn btn-outline-warning">Withdraw</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

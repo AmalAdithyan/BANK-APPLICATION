@@ -1,0 +1,31 @@
+<h2 class="ms-2 p-2 mt-5 text-center">Your Perfect Banking Partner</h2>
+<div class="container w-50 p-5 rounded text-center mt-5" style="background-color: rgba(0, 0, 0, 0.288);">
+    <h1>Sign Up To Your Bank Account</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="register()" action="" >
+        <div class="p-3 mt-2"> <!--since you use [forGroup] you wont bee needing ngmodel(no need to use two way binding since formgroup will colect data)
+        also you can delete the variable-->
+            <input formControlName="uname" id="unamid" name="usern1" class="form-control" type="text"
+                placeholder="Enter Username">
+        </div>
+        <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+            <p class="text-danger">Accept only Charecters</p>
+        </div>
+        <div class="p-3 mt-2">
+            <input formControlName="acno" id="acid" name="acnum1" class="form-control" type="text"
+                placeholder="Enter Account Number">
+        </div>
+        <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+            <p class="text-danger">Accept only Numbers</p>
+        </div>
+        <div class="p-3 mt-2">
+            <input formControlName="psw" id="psw1" name="paswrd1" class="form-control" type="password"
+                placeholder="Enter Password">
+        </div>
+        <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+            <p class="text-danger">Accept only Numbers and Charecters</p>
+        </div>
+        <div class="p-3 mt-2">
+            <button  type="submit" class="btn btn-outline-warning">Register</button>
+        </div>
+    </form>
+</div>

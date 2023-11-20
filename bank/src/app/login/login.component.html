@@ -1,0 +1,20 @@
+<h2 class="ms-2 p-2 mt-5 text-center">{{data}}</h2>
+<div class="container w-50 p-5 rounded text-center mt-5" style="background-color: rgba(0, 0, 0, 0.288);">
+    <h1>Sign In To Your Bank Account</h1>
+    <form (ngSubmit)="login()" [formGroup]="loginForm" action="">
+        <div class="p-3 mt-2">
+            <input formControlName="acno" id="acid" name="acnum1" class="form-control" type="text" [placeholder]="inputplaceholder">
+        </div><!-- #acno is when user adds username or password it will collect the data 
+        its an event binding  with  template rendering  variable //operator used is-- #variable type any variable after #  //means ee inputila data #whatevervariablilk kitum--> 
+        <div class="p-3 mt-2">
+            <input formControlName="psw" id="psw1" name="paswrd1" class="form-control" type="password" placeholder="Enter Password">
+        </div>
+        <div class="p-3 mt-2">
+            <button type="submit" class="btn btn-outline-light">Login</button> <!--#variable ee htmlil mathrame use cheyyan pattolu veroru filil kodukkan pattila -->
+        </div><!--but ithil kodukkam so login function anu work avendath ath ee htmlil anu so #acno and #psw argument ayit login(ithilekku pass cheythu kodukkum)
+        eniit ts filil call cheyum ALSO TS FILEINDE AKATHUM POYI SAME OF DIFFERENT TWO ARGUMENTS KODUKKANAM ALSO MENTION THE TYPE -->
+    </form>
+    <div class="text-center text-white">
+        <strong>Not Registered?</strong><a style="text-decoration: none; color: rgb(223, 178, 65)" routerLink="register"><strong>Register</strong></a>
+    </div>
+</div>
